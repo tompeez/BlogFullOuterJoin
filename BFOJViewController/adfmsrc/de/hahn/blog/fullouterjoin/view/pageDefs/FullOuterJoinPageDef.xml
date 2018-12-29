@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="FullOuterJoinPageDef"
+                Package="de.hahn.blog.fullouterjoin.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DepEmpViewObj1" RangeSize="25" DataControl="BFOJAppModuleDataControl" id="DepEmpViewObj1Iterator"/>
+    <searchRegion Binds="DepEmpViewObj1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DepEmpViewObj1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DepEmpViewObj1Iterator" id="DepEmpViewObj1">
+      <nodeDefinition DefName="de.hahn.blog.fullouterjoin.model.DepEmpViewObj" Name="DepEmpViewObj10">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="DepartmentId1"/>
+          <Item Value="LastName"/>
+          <Item Value="FirstName"/>
+          <Item Value="EmployeeId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

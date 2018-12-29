@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="FullOuterJoin.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                        <af:outputText value="Full Outer Join Sample" id="ot1" inlineStyle="font-size:x-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Content -->
+                        <af:panelCollection id="pc1">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.DepEmpViewObj1.collectionModel}" var="row"
+                                      rows="#{bindings.DepEmpViewObj1.rangeSize}"
+                                      emptyText="#{bindings.DepEmpViewObj1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.DepEmpViewObj1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.DepEmpViewObj1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.DepEmpViewObj1.rangeSize}"
+                                      filterModel="#{bindings.DepEmpViewObj1Query.queryDescriptor}" filterVisible="true"
+                                      queryListener="#{bindings.DepEmpViewObj1Query.processQuery}" varStatus="vs"
+                                      id="t1">
+                                <af:column sortProperty="#{bindings.DepEmpViewObj1.hints.DepartmentId.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.DepEmpViewObj1.hints.DepartmentId.label}" id="c1">
+                                    <af:outputText value="#{row.DepartmentId}"
+                                                   shortDesc="#{bindings.DepEmpViewObj1.hints.DepartmentId.tooltip}"
+                                                   id="ot2">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.DepEmpViewObj1.hints.DepartmentId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DepEmpViewObj1.hints.DepartmentName.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.DepEmpViewObj1.hints.DepartmentName.label}" id="c2">
+                                    <af:outputText value="#{row.DepartmentName}"
+                                                   shortDesc="#{bindings.DepEmpViewObj1.hints.DepartmentName.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DepEmpViewObj1.hints.DepartmentId1.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.DepEmpViewObj1.hints.DepartmentId1.label}" id="c3">
+                                    <af:outputText value="#{row.DepartmentId1}"
+                                                   shortDesc="#{bindings.DepEmpViewObj1.hints.DepartmentId1.tooltip}"
+                                                   id="ot4">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.DepEmpViewObj1.hints.DepartmentId1.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DepEmpViewObj1.hints.LastName.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.DepEmpViewObj1.hints.LastName.label}" id="c4">
+                                    <af:outputText value="#{row.LastName}"
+                                                   shortDesc="#{bindings.DepEmpViewObj1.hints.LastName.tooltip}"
+                                                   id="ot5"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DepEmpViewObj1.hints.FirstName.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.DepEmpViewObj1.hints.FirstName.label}" id="c5">
+                                    <af:outputText value="#{row.FirstName}"
+                                                   shortDesc="#{bindings.DepEmpViewObj1.hints.FirstName.tooltip}"
+                                                   id="ot6"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DepEmpViewObj1.hints.EmployeeId.name}"
+                                           filterable="true" sortable="true"
+                                           headerText="#{bindings.DepEmpViewObj1.hints.EmployeeId.label}" id="c6">
+                                    <af:outputText value="#{row.EmployeeId}"
+                                                   shortDesc="#{bindings.DepEmpViewObj1.hints.EmployeeId.tooltip}"
+                                                   id="ot7">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.DepEmpViewObj1.hints.EmployeeId.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>
